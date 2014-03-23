@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Builder</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1>CVW</h1>
+          <h2>Your Stuff</h2>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="resume-builder">
+        <div class="resume-section-controls">
+          <div id="resume-sections-overview" class="list-group"><a class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Statement</a><a class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Skills</a><a class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Experience</a><a class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Education</a></div>
+        </div>
+        <div class="resume-sections">
+          <div class="resume-section">
+            <div class="resume-section-header">
+              <h3>Statement</h3>
+            </div>
+            <div class="resume-section-body">
+              <form role="form">
+                <div class="form-group">
+                  <label>Be real.</label>
+                  <textarea class="form-control"></textarea>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="resume-section">
+            <div class="resume-section-header">
+              <h3>Skills</h3>
+            </div>
+            <div id="skillsPanel" class="resume-section-body">
+              <form role="form">
+                <div id="skillCloner" class="row form-group">
+                  <div class="col-sm-11">
+                    <input type="text" placeholder="Skill" class="form-control">
+                  </div>
+                  <div class="col-sm-1"><span class="glyphicon glyphicon-remove"></span></div>
+                </div>
+                <div class="row form-group">
+                  <div class="col-sm-11">
+                    <input type="text" placeholder="Skill" class="form-control">
+                  </div>
+                  <div class="col-sm-1"><span class="glyphicon glyphicon-remove"></span></div>
+                </div>
+                <div class="row btn-row">
+                  <div class="col-sm-12">
+                    <button id="addSkill" class="btn btn-primary pull-right">Add Another</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="/bower_components/Sortable/Sortable.js"></script>
+    <script>
+      var resumeSections = document.getElementById("resume-sections-overview");
+      new Sortable(resumeSections, {
+        handle: ".glyphicon-align-justify",
+        onUpdate: function(){
+         //update sections and save here	
+        }
+      });
+      $(document).ready(function(){
+       //add skills
+       $("#addSkill").click(function(){
+        $("#skillCloner").clone().insertBefore("#skillsPanel .btn-row").show();
+        return false;
+       });
+       //remove skills
+       $("#skillsPanel").on("click",".glyphicon-remove",function(){
+        if($("#skillsPanel .glyphicon-remove").length>2) {
+         var remField = $(this).parent().parent();
+         remField.fadeOut("fast",function(){
+          remField.remove();
+         });
+        }
+       });
+       //
+      });
+    </script>
+  </body>
+</html>

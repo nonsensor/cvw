@@ -1,0 +1,88 @@
+doctype html
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		title Builder
+		link(rel="stylesheet",type="text/css",href="css/styles.css")
+	body
+		.container
+			.row
+				.col-sm-12
+					h1 CVW
+					h2 Your Stuff
+		.container
+			.resume-builder
+				.resume-section-controls
+					div.list-group#resume-sections-overview
+						a.list-group-item 
+							span.sorter
+								span.glyphicon.glyphicon-align-justify
+							| Statement
+						a.list-group-item
+							span.sorter
+								span.glyphicon.glyphicon-align-justify
+							| Skills
+						a.list-group-item
+							span.sorter
+								span.glyphicon.glyphicon-align-justify
+							| Experience
+						a.list-group-item
+							span.sorter
+								span.glyphicon.glyphicon-align-justify
+							| Education
+				.resume-sections
+						.resume-section
+							.resume-section-header
+								h3 Statement
+							.resume-section-body
+								form(role="form")
+									.form-group
+										label Be real.
+										textarea(class="form-control")
+						.resume-section
+							.resume-section-header
+								h3 Skills
+							.resume-section-body#skillsPanel
+								form(role="form")
+									.row.form-group#skillCloner
+										.col-sm-11
+											input(type="text",placeholder="Skill").form-control
+										.col-sm-1
+											span.glyphicon.glyphicon-remove
+									.row.form-group
+										.col-sm-11
+											input(type="text",placeholder="Skill").form-control
+										.col-sm-1
+											span.glyphicon.glyphicon-remove
+									.row.btn-row
+										.col-sm-12
+											button#addSkill.btn.btn-primary.pull-right Add Another
+
+		
+		script(src="http://code.jquery.com/jquery-1.11.0.min.js")
+		script(src="/bower_components/Sortable/Sortable.js")
+		script.
+			var resumeSections = document.getElementById("resume-sections-overview");
+			new Sortable(resumeSections, {
+					handle: ".glyphicon-align-justify",
+					onUpdate: function(){
+						//update sections and save here	
+					}
+				});
+			$(document).ready(function(){
+				//add skills
+				$("#addSkill").click(function(){
+					$("#skillCloner").clone().insertBefore("#skillsPanel .btn-row").show();
+					return false;
+				});
+				//remove skills
+				$("#skillsPanel").on("click",".glyphicon-remove",function(){
+					if($("#skillsPanel .glyphicon-remove").length>2) {
+						var remField = $(this).parent().parent();
+						remField.fadeOut("fast",function(){
+							remField.remove();
+						});
+					}
+				});
+				//
+			});

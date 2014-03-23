@@ -4,60 +4,14 @@ html(lang="en")
 		meta(charset="utf-8")
 		title Builder
 		link(rel="stylesheet",type="text/css",href="css/styles.css")
-	body
+	body#stevie
 		.container
 			.row
 				.col-sm-12
 					h1 CVW
-					h2 Your Stuff
-		.container
 			.row
-				.col-md-4
-					div.list-group
-						a.list-group-item 
-							span.sorter
-								span.glyphicon.glyphicon-align-justify
-							| Statement
-						a.list-group-item
-							span.sorter
-								span.glyphicon.glyphicon-align-justify
-							| Skills
-						a.list-group-item
-							span.sorter
-								span.glyphicon.glyphicon-align-justify
-							| Experience
-						a.list-group-item
-							span.sorter
-								span.glyphicon.glyphicon-align-justify
-							| Education
-				.col-md-8
-					form(role="form")
-						.panel.panel-default
-							.panel-heading
-								h3.panel-title Statement
-							.panel-body
-								.form-group
-									label Be real.
-									textarea(class="form-control")
-						.panel.panel-default
-							.panel-heading
-								h3.panel-title Skills
-							.panel-body#skillsPanel
-								.form-group#skillCloner
-									input(type="text",placeholder="Skill").form-control									
-								.form-group
-									label.sr-only Enter Your Skills
-									input(type="text",placeholder="Skill").form-control
-								.form-group
-									input(type="text",placeholder="Skill").form-control
-								.row.btn-row
-									.col-sm-12
-										button#addSkill.btn.btn-default.pull-right Add Another
-
-		
-		script(src="http://code.jquery.com/jquery-1.11.0.min.js")
-		script.
-			$("#addSkill").click(function(){
-				$("#skillCloner").clone().insertBefore("#skillsPanel .btn-row").show();
-				return false;
-			});
+				.col-sm-12
+					p Pages Here:
+					ul
+						li
+							a(href="builder.html") Builder

@@ -1,9 +1,55 @@
 @import "bootstrap/bootstrap.less";
 
+body#stevie {
+	background:url(/img/stevie.jpg) center top no-repeat;
+	background-size:cover;
+	h1,p  {
+		color: #fff;
+	}
+}
+
+.resume-builder {
+	.make-row();
+}
+
+.resume-section-controls {
+	.make-sm-column(4);
+}
+
+.resume-sections {
+	.make-sm-column(8);
+}
+
 .sorter {
 	float: right;
 }
 
 #skillCloner {
 	display: none;
+}
+
+.glyphicon-remove {
+	cursor: pointer;
+	color: @brand-danger;
+}
+
+#resume-sections-overview .glyphicon {
+	cursor: move;
+}
+
+.resume-section {
+	.panel();
+	.panel-default();
+	&:extend(.panel-default all);
+	.resume-section-header {
+		.panel-heading();
+		&:extend(.panel-heading all);
+		h3 {
+			.panel-title();
+		}
+	}
+	.resume-section-body {
+		.panel-body();		
+	}
+
 }
