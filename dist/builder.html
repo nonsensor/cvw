@@ -3,67 +3,150 @@
   <head>
     <meta charset="utf-8">
     <title>Builder</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400italic,400,700">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <h1>CVW</h1>
-          <h2>Your Stuff</h2>
+          <h1>CV Wonder</h1>
+          <h2>Your <strong>Default</strong> Resume</h2>
         </div>
       </div>
     </div>
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="alert alert-info alert-dismissable">
+            <button data-dismiss="alert" type="button" aria-hidden="true" class="close">&times;</button>We've created some sample sections for you. Don't bother looking for the save button, we're always auto-saving your resume.
+          </div>
+        </div>
+      </div>
       <div class="resume-builder">
         <div class="resume-section-controls">
-          <div id="resume-sections-overview" class="list-group"><a class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Statement</a><a class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Skills</a><a class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Experience</a><a class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Education</a></div>
+          <div id="resume-sections-overview" class="list-group"><a href="#infoPanel" class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Personal Information</a><a href="#objectivePanel" class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Objective</a><a href="#skillsPanel" class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Skills</a><a href="#experiencePanel1" class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Experience</a><a href="#educationPanel1" class="list-group-item"><span class="sorter"><span class="glyphicon glyphicon-align-justify"></span></span>Education</a></div>
+          <div class="form-inline">
+            <div class="form-group">
+              <label>Create a new section</label><br>
+              <select style="width:160px" class="form-control">
+                <option>Experience</option>
+              </select>
+              <button data-toggle="modal" data-target="#create-section" class="btn btn-primary btn-sm">Add New Section</button>
+            </div>
+          </div>
         </div>
         <div class="resume-sections">
-          <div class="resume-section">
+          <div id="infoPanel" class="resume-section">
             <div class="resume-section-header">
-              <h3>Statement</h3>
+              <h3>Personal Information</h3>
             </div>
             <div class="resume-section-body">
-              <form role="form">
+              <form class="form-horizontal">
                 <div class="form-group">
-                  <label>Be real.</label>
-                  <textarea class="form-control"></textarea>
+                  <label class="control-label">Full Name</label>
+                  <div id="field-full-name" data-toggle="tooltip" data-placement="top" title="Stick to your full name. No nicknames, Scooter." class="field-holder">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Street Address</label>
+                  <div class="field-holder">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">City</label>
+                  <div class="field-holder">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">US State</label>
+                  <div class="field-holder">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">ZIP Code</label>
+                  <div class="field-holder">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">E-Mail Address</label>
+                  <div class="field-holder">
+                    <input type="email" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Phone Number</label>
+                  <div class="field-holder">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label">Website URL</label>
+                  <div id="field-website" data-toggle="tooltip" data-placement="top" title="Don't have a website? Try your CVW address. If your resume is printed or sent around in a document format, the address will be there for anyone to see." class="field-holder">
+                    <input type="text" class="form-control">
+                  </div>
                 </div>
               </form>
             </div>
           </div>
-          <div class="resume-section">
+          <div id="objectivePanel" class="resume-section">
+            <div class="resume-section-header">
+              <h3>Objective</h3>
+            </div>
+            <div class="resume-section-body">
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">Be real.</label>
+                  <div class="col-sm-9">
+                    <textarea class="form-control"></textarea>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div id="skillsPanel" class="resume-section">
             <div class="resume-section-header">
               <h3>Skills</h3>
             </div>
-            <div id="skillsPanel" class="resume-section-body">
+            <div class="resume-section-body">
               <form role="form">
                 <div id="skillCloner" class="row form-group">
-                  <div class="col-sm-11">
+                  <div class="col-xs-11">
                     <input type="text" placeholder="Skill" class="form-control">
                   </div>
-                  <div class="col-sm-1"><span class="glyphicon glyphicon-remove"></span></div>
+                  <div class="col-xs-1"><span class="glyphicon glyphicon-remove"></span></div>
                 </div>
                 <div class="row form-group">
-                  <div class="col-sm-11">
+                  <div class="col-xs-12">
                     <input type="text" placeholder="Skill" class="form-control">
                   </div>
-                  <div class="col-sm-1"><span class="glyphicon glyphicon-remove"></span></div>
                 </div>
                 <div class="row btn-row">
-                  <div class="col-sm-12">
+                  <div class="col-xs-12">
                     <button id="addSkill" class="btn btn-primary pull-right">Add Another</button>
                   </div>
                 </div>
               </form>
             </div>
           </div>
+          <div id="experiencePanel" class="resume-section">
+            <div class="resume-section-header">
+              <h3>Work Experience</h3>
+            </div>
+            <div class="resume-section-body"></div>
+          </div>
         </div>
       </div>
     </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="/bower_components/Sortable/Sortable.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="bower_components/Sortable/Sortable.js"></script>
     <script>
       var resumeSections = document.getElementById("resume-sections-overview");
       new Sortable(resumeSections, {
@@ -80,7 +163,7 @@
        });
        //remove skills
        $("#skillsPanel").on("click",".glyphicon-remove",function(){
-        if($("#skillsPanel .glyphicon-remove").length>2) {
+        if($("#skillsPanel .form-group").length>2) {
          var remField = $(this).parent().parent();
          remField.fadeOut("fast",function(){
           remField.remove();
@@ -88,6 +171,7 @@
         }
        });
        //
+       $("#field-full-name,#field-website").tooltip();
       });
     </script>
   </body>

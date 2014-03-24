@@ -1,11 +1,28 @@
 @import "bootstrap/bootstrap.less";
 
+body {
+	background: #efefef;
+	font-family: "Roboto Condensed",sans-serif;
+}
+
 body#stevie {
-	background:url(/img/stevie.jpg) center top no-repeat;
+	background:url(../img/stevie.jpg) center top no-repeat;
 	background-size:cover;
 	h1,p  {
 		color: #fff;
 	}
+	.container {
+		background: transparent;
+	}
+}
+
+h2 strong {
+	background: @gray-lighter;
+	padding: 4px;
+}
+
+.container {
+	background: #fff;
 }
 
 .resume-builder {
@@ -43,6 +60,8 @@ body#stevie {
 	&:extend(.panel-default all);
 	.resume-section-header {
 		.panel-heading();
+		background: @gray-light;
+		color: #fff;
 		&:extend(.panel-heading all);
 		h3 {
 			.panel-title();
@@ -52,4 +71,21 @@ body#stevie {
 		.panel-body();		
 	}
 
+}
+
+#infoPanel .form-group {
+	label {
+		font-weight: normal;
+		.make-sm-column(3);
+	}
+	div.field-holder {
+		.make-sm-column(9);
+		input {
+			width: 100% !important;
+		}
+	}
+}
+
+.tooltip-inner {
+    max-width: 350px;
 }
